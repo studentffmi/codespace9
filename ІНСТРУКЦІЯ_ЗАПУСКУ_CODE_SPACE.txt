@@ -1,0 +1,14 @@
+CODE SPACE — завершення публікації (листопад 2026)
+
+1. Розпакуйте ZIP, завантажте ВСІ файли в корінь публічного репозиторію GitHub studentffmi/codespace9. Перевірте, що index.html та sitemap.xml лежать у корені, а папка assets — поруч. Не завантажуйте ZIP як є.
+2. У Settings → Pages: Deploy from a branch → main → /(root) → Save. Після зеленого статусу в Actions відкрийте https://studentffmi.github.io/codespace9/
+3. Перевірте відео: кнопка Play у розділі «Відеоогляд»; файл assets/code-space-demo.mp4 оптимізований до ~6,5 МБ, не завантажується автоматично.
+4. Перевірте нове фото авторки, карусель, скриншоти проєктів, таймер і посилання https://secure.wayforpay.com/payment/s176cc8f11cd4.
+5. Перевірте, що у WayForPay ціна дорівнює 149 грн і покупець після тестової оплати отримує коректне посилання на ZIP у Google Drive.
+6. Додайте ресурс типу URL-prefix https://studentffmi.github.io/codespace9/ до Google Search Console, підтвердіть право володіння. Якщо Search Console дає HTML-файл перевірки, додайте його в корінь репозиторію без перейменування.
+7. Коли сайт опубліковано, відкрийте напряму https://studentffmi.github.io/codespace9/sitemap.xml і переконайтесь, що повертається саме XML (не 404 і не HTML).
+8. У Search Console → Sitemaps введіть sitemap.xml (або повний URL). Якщо Google знову повідомляє «Не вдалося отримати», перевірте URL напряму, стан GitHub Pages, тип ресурсу й обробку Google; як резерв можна спробувати sitemap.txt.
+9. У URL Inspection → https://studentffmi.github.io/codespace9/ → Перевірити опубліковану адресу → Надіслати запит на індексацію. Індексація НЕ гарантується самою картою сайту.
+10. Метатег ціни Product (149 UAH) потрібно оновлювати при зміні вартості; ціна у WayForPay налаштовується окремо. 24-годинний таймер зберігається локально у браузері й не керує оплатою.
+11. Кореневий robots.txt GitHub Pages розташовується на https://studentffmi.github.io/robots.txt, а файл https://studentffmi.github.io/codespace9/robots.txt НЕ керує скануванням цього сайту як robots.txt стандарту. Для індексації потрібні публічні сторінки та Sitemap через Search Console.
+12. Аналітика Meta Pixel або GA4 не включена, оскільки їхніх ідентифікаторів не було надано. Публікація на GitHub та робота Google Search Console потребують дій у відповідних акаунтах.

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /codespace9/
+
+Sitemap: https://studentffmi.github.io/codespace9/sitemap.xml
