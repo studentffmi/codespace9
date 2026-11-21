@@ -150,6 +150,40 @@ body{background:#060c23;color:var(--white)}
 @media(max-width:800px){.hero{padding:53px 0 63px}.nav{background:#0d1c45;border-color:#78dfff}.hero-stats{gap:9px}#why .solution-panel{align-items:start}}
 @media(max-width:560px){.hero h1{font-size:clamp(54px,14vw,69px)}.hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.hero-stat{padding:11px 9px;border-radius:13px}.hero-stat strong{font-size:28px}.hero-stat span{font-size:11px}#why .problem-card{padding:19px}#get .offer{padding:25px 18px}#get .buy-panel{padding:21px}}
 
+
+/* Sky animation and simple cinematic gallery, 2026 */
+.hero::after,#why::after,#sectors::after,#preview::after,#video::after,#author::after,#get::after{
+ content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background-image:radial-gradient(circle,#eafcff 1.4px,transparent 2.6px),radial-gradient(circle,#74e9ff 1.1px,transparent 2.3px),radial-gradient(circle,#e1c4ff 1.5px,transparent 3px);
+ background-size:137px 181px,211px 157px,291px 263px;
+ background-position:15px 24px,87px 63px,143px 126px;
+ opacity:.42;animation:spaceTwinkle 5.4s ease-in-out infinite alternate
+}
+@keyframes spaceTwinkle{0%{opacity:.19;filter:brightness(.6)}52%{opacity:.56;filter:brightness(1.25)}100%{opacity:.32;filter:brightness(.85)}}
+.hero>.container,#why>.container,#sectors>.container,#preview>.container,#features>.container,#video>.container,#author>.container,#get>.container{position:relative;z-index:2}
+.comet-sky{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.space-comet{position:absolute;top:5%;left:-155px;width:125px;height:2px;opacity:0;border-radius:99px;background:linear-gradient(90deg,transparent 0%,#42c8ff55 42%,#d0faff 84%,#fff 100%);filter:drop-shadow(0 0 4px #6beaff);animation:cometFlight 14s linear infinite}
+.space-comet::after{content:"";position:absolute;right:-2px;top:-3px;width:8px;height:8px;border-radius:50%;background:#f8ffff;box-shadow:0 0 12px 4px #60dcff88}
+.space-comet:nth-child(2){top:28%;animation-duration:19s;animation-delay:-9s;width:90px;filter:drop-shadow(0 0 4px #c3a4ff)}
+.space-comet:nth-child(3){top:12%;animation-duration:24s;animation-delay:-17s;width:105px}
+@keyframes cometFlight{0%,65%{opacity:0;transform:translate3d(-150px,-35px,0) rotate(16deg)}67%{opacity:.92}78%{opacity:0;transform:translate3d(calc(100vw + 450px),37vh,0) rotate(16deg)}100%{opacity:0;transform:translate3d(calc(100vw + 450px),37vh,0) rotate(16deg)}}
+.gallery-shell{padding:clamp(12px,2vw,20px);border-radius:26px}
+.gallery-topline{padding:2px 3px 11px}
+.gallery-main{border-radius:20px;overflow:hidden;box-shadow:0 16px 44px #0007}
+.gallery-open{position:relative;width:100%;aspect-ratio:2.08;display:block;overflow:hidden;isolation:isolate;border:0;padding:0;background:#070f30}
+.gallery-open .gallery-layer{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;object-position:center;aspect-ratio:auto;border-radius:0;pointer-events:none}
+.gallery-open .gallery-incoming{opacity:0;z-index:2;transform:translate3d(27px,0,0) scale(1.018);transition:opacity .56s ease,transform .56s cubic-bezier(.2,.65,.23,1)}
+.gallery-open .gallery-incoming.is-active{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.gallery-main .gallery-arrow{z-index:5;background:#081a43dc;border:1px solid #8aefff;backdrop-filter:blur(7px);box-shadow:0 4px 20px #0006}
+.gallery-main .gallery-arrow:hover{background:#19458e}
+.gallery-toolbar-clean{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:14px 4px 3px}
+.gallery-toolbar-clean .gallery-dots{display:flex;align-items:center;gap:7px;flex-wrap:nowrap;max-width:calc(100% - 125px);overflow:hidden}
+.gallery-toolbar-clean .gallery-dot{width:7px;height:7px;flex:0 0 7px;background:#74a2df88;border-radius:999px;transition:width .36s,background .36s}
+.gallery-toolbar-clean .gallery-dot.active{background:#ffdf55;width:23px;flex-basis:23px}
+.gallery-toolbar-clean .gallery-mini{background:#15326a;border:1px solid #68caff;min-width:113px}
+@media(max-width:760px){.gallery-open{aspect-ratio:1.82}.gallery-toolbar-clean{padding-top:12px}.gallery-main .gallery-arrow{width:34px;height:46px}.gallery-toolbar-clean .gallery-dots{gap:5px}.gallery-toolbar-clean .gallery-dot{flex-basis:5px;width:5px;height:5px}.gallery-toolbar-clean .gallery-dot.active{flex-basis:15px;width:15px}}
+@media(prefers-reduced-motion:reduce){.hero::after,#why::after,#sectors::after,#preview::after,#video::after,#author::after,#get::after{animation:none;opacity:.27}.space-comet{display:none}.gallery-open .gallery-incoming{transition:none}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"CODE SPACE — відеоогляд інтерактивного комплексу Python для 9 класу","description":"Відео демонструє навчальні сектори, пояснення теорії, програмістські місії та інтерфейс гри CODE SPACE.","thumbnailUrl":"https://studentffmi.github.io/codespace9/assets/video-poster.webp","uploadDate":"2026-11-18T13:19:29+02:00","duration":"PT3M0S","contentUrl":"https://studentffmi.github.io/codespace9/assets/code-space-demo.mp4","inLanguage":"uk"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"CODE SPACE — інтерактивний навчальний комплекс Python, 9 клас","description":"10 секторів, 30 програмістських задач, навчальна теорія, практичні роботи та 5 модульних проєктів у HTML-грі.","image":"https://studentffmi.github.io/codespace9/assets/gallery-01.webp","sku":"CODE-SPACE-9-DIGITAL","brand":{"@type":"Brand","name":"CODE SPACE"},"offers":{"@type":"Offer","url":"https://studentffmi.github.io/codespace9/","priceCurrency":"UAH","price":"149.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}}</script>
@@ -177,7 +211,7 @@ body{background:#060c23;color:var(--white)}
   <a class="button gold minor top-cta" href="#get">Про придбання ↗</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню">☰</button>
 </div></header>
 <main>
-<section class="hero" id="top"><div class="container"><div class="hero-grid">
+<section class="hero" id="top"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><div class="hero-grid">
   <div class="reveal"><p class="eyebrow">Інтерактивна навчальна експедиція · Python 9 клас</p><h1>CODE <span>SPACE</span></h1><p class="hero-headline">Складні теми Python — <em>зрозуміло для дітей.</em> Уроки — готові для вчителя.</p><p class="lead">Піксель запрошує учнів на станцію «Орбіта-9». Тут списки, сортування, пошук і рядки вивчають не за сухими прикладами, а через космічні ситуації та роботу зі справжнім кодом.</p>
   <div class="hero-actions"><a class="button primary" href="#sectors">Переглянути всі теми <span aria-hidden="true">↗</span></a><a class="button ghost" href="#preview">Побачити гру <span aria-hidden="true">▶</span></a></div>
   <div class="hero-proof"><span class="proof">✓ Теорія перед кожним сектором</span><span class="proof">✓ Різнорівневі задачі</span><span class="proof">✓ Працює офлайн</span></div></div>
@@ -188,7 +222,7 @@ body{background:#060c23;color:var(--white)}
   <article class="problem-card reveal"><span class="problem-icon">💻</span><h3>Де взяти змістовну практику?</h3><p>Учням потрібні задачі, у яких код щось вирішує. Тут є 30 космічних ситуацій із чіткими умовами, вхідними даними, результатами та перевіркою.</p></article>
   <article class="problem-card reveal"><span class="problem-icon">🧩</span><h3>Як зацікавити різний клас?</h3><p>У кожному секторі — базова, достатня та складніша місія. Є підказки, різні формати роботи й можливість перезапустити сектор для повторення.</p></article>
 </div><div class="solution-panel reveal"><div><strong>Теорія + практика + інтерактив = готовий цифровий інструмент до уроку</strong><p>Не потрібно створювати окремі презентації, тести й тренажери. Вибирайте потрібну тему, пояснюйте матеріал і переходьте до практики в тому самому середовищі.</p></div><span class="solution-check" aria-hidden="true">✓</span></div></div></section>
-<section id="sectors" class="section"><div class="container"><div class="section-header"><div><p class="eyebrow reveal">10 секторів — послідовний маршрут</p><h2 class="section-title reveal">Усі теми <span class="accent">в одній галактиці</span></h2><p class="section-desc reveal">Від поняття одновимірного масиву — до власного модульного проєкту. Кожен сектор можна відкрити незалежно від попередніх.</p></div></div>
+<section id="sectors" class="section"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><div class="section-header"><div><p class="eyebrow reveal">10 секторів — послідовний маршрут</p><h2 class="section-title reveal">Усі теми <span class="accent">в одній галактиці</span></h2><p class="section-desc reveal">Від поняття одновимірного масиву — до власного модульного проєкту. Кожен сектор можна відкрити незалежно від попередніх.</p></div></div>
   <div class="sector-layout"><div class="sector-list" role="tablist" aria-label="Навчальні сектори">
     <button class="sector-button active" type="button" role="tab" aria-selected="true" aria-controls="sector-description" data-sector="0"><span class="sector-num">01</span><span>Поняття одновимірного масиву</span></button>
     <button class="sector-button" type="button" role="tab" aria-selected="false" aria-controls="sector-description" data-sector="1"><span class="sector-num">02</span><span>Створення і виведення списків</span></button>
@@ -202,20 +236,24 @@ body{background:#060c23;color:var(--white)}
     <button class="sector-button" type="button" role="tab" aria-selected="false" aria-controls="sector-description" data-sector="9"><span class="sector-num">10</span><span>Створення модульних проєктів</span></button>
   </div><div class="sector-preview reveal" role="tabpanel" id="sector-description" aria-live="polite"><span class="label" id="sector-label">СЕКТОР 01 / 10</span><span class="sector-planet" id="sector-icon" aria-hidden="true">🪐</span><h3 id="sector-title">Поняття одновимірного масиву</h3><p id="sector-text">Пояснюємо, навіщо потрібні впорядковані набори даних, як працюють індекси й чому нумерація у Python починається з нуля.</p><div class="sector-tags"><span>Пояснення від Пікселя</span><span>Приклад Python</span><span>3 місії</span></div></div></div>
 </div></section>
-<section class="section dark-slab" id="preview"><div class="container">
+<section class="section dark-slab" id="preview"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container">
 <p class="eyebrow">Живий вигляд навчального комплексу</p>
 <h2 class="section-title">CODE SPACE <span class="accent">зсередини</span></h2>
-<p class="section-desc">Перегляньте 14 справжніх скриншотів гри: карту секторів, теоретичні пояснення, задачі з кодом, консоль і проєктну майстерню. Натисніть на зображення, щоб збільшити його.</p>
+<p class="section-desc">Перегляньте 12 справжніх скриншотів гри: карту секторів, теоретичні пояснення, задачі з кодом, консоль і проєктну майстерню. Натисніть на зображення, щоб збільшити його.</p>
 <div class="gallery-shell" id="spaceGallery" aria-roledescription="карусель" aria-label="Скриншоти навчальної гри CODE SPACE">
- <div class="gallery-topline"><span class="label">ЕКРАНИ ГРИ</span><span class="gallery-count" id="galleryCount">01 / 12</span></div>
- <div class="gallery-main">
- <button class="gallery-arrow gallery-prev" type="button" id="galleryPrev" aria-label="Попередній скриншот">‹</button>
- <button class="gallery-open" type="button" id="galleryOpen" aria-label="Відкрити скриншот на весь екран"><img id="galleryImage" src="assets/gallery-01.webp" width="1720" height="785" alt="Карта секторів CODE SPACE"></button>
- <button class="gallery-arrow gallery-next" type="button" id="galleryNext" aria-label="Наступний скриншот">›</button>
- </div>
- <div class="gallery-description" aria-live="polite"><div><strong id="galleryTitle">Карта галактики</strong><p id="galleryDesc">10 секторів, відкритих незалежно один від одного</p></div><span>Гортайте стрілками або свайпом</span></div>
- <div class="gallery-thumbs" id="galleryThumbs" role="group" aria-label="Вибрати скриншот"></div>
- <div class="gallery-toolbar"><button class="gallery-mini" id="galleryPlay" type="button" aria-pressed="false">▶ Автоперегляд</button><div class="gallery-dots" id="galleryDots" aria-hidden="true"></div><button class="gallery-mini" id="galleryFullscreen" type="button">⛶ Збільшити</button></div>
+  <div class="gallery-topline"><span class="label">ЕКРАНИ ГРИ</span><span class="gallery-count" id="galleryCount" aria-live="off">01 / 12</span></div>
+  <div class="gallery-main">
+    <button class="gallery-arrow gallery-prev" type="button" id="galleryPrev" aria-label="Попередній скриншот">‹</button>
+    <button class="gallery-open" type="button" id="galleryOpen" aria-label="Збільшити поточний скриншот">
+      <img class="gallery-layer" id="galleryImage" src="assets/gallery-01.webp" width="1720" height="785" alt="Карта секторів CODE SPACE">
+      <img class="gallery-layer gallery-incoming" id="galleryIncoming" alt="" aria-hidden="true">
+    </button>
+    <button class="gallery-arrow gallery-next" type="button" id="galleryNext" aria-label="Наступний скриншот">›</button>
+  </div>
+  <div class="gallery-toolbar gallery-toolbar-clean">
+    <div class="gallery-dots" id="galleryDots" aria-hidden="true"></div>
+    <button class="gallery-mini" id="galleryFullscreen" type="button">⛶ Збільшити</button>
+  </div>
 </div></div></section>
 <div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Збільшений скриншот CODE SPACE" hidden><button class="lightbox-close" id="lightboxClose" type="button" aria-label="Закрити збільшення">×</button><button type="button" class="lightbox-arrow" id="lightboxPrev" aria-label="Попереднє зображення">‹</button><img id="lightboxImage" alt="Збільшений скриншот CODE SPACE"><button type="button" class="lightbox-arrow" id="lightboxNext" aria-label="Наступне зображення">›</button><p id="lightboxCaption"></p></div>
 <section class="section" id="features"><div class="container"><p class="eyebrow reveal">Завдання, які вчать програмувати</p><h2 class="section-title reveal">Шість способів <span class="accent">працювати з Python</span></h2><p class="section-desc reveal">Учні не обмежуються вибором відповіді. Вони будують алгоритми, виправляють код, експериментують із даними та бачать результат своєї роботи.</p><div class="feature-grid">
@@ -228,10 +266,10 @@ body{background:#060c23;color:var(--white)}
 </div><div class="notice reveal">У комплекті є <strong>консоль перевірки, компактна екранна клавіатура, підказки, бали та кнопка перезапуску кожного сектору</strong>. Навчальний виконавець підтримує конструкції Python, необхідні для завдань гри.</div></div></section>
 
 
-<section class="section" id="video"><div class="container"><p class="eyebrow reveal">Зазирніть усередину</p><h2 class="section-title reveal">Подивіться, <span class="accent">як працює CODE SPACE</span></h2><p class="section-desc reveal">У трьохвилинному відеоогляді показано реальні екрани CODE SPACE: карту навчальних секторів, теоретичні пояснення, інтерактивні приклади та програмістські місії. Натисніть відтворення, щоб побачити комплекс у роботі.</p><div class="video-frame reveal" id="videoFrame"><video controls playsinline preload="none" poster="assets/video-poster.webp" width="1600" height="910" aria-label="Відеоогляд інтерактивної гри CODE SPACE для 9 класу"><source src="assets/code-space-demo.mp4" type="video/mp4">Ваш браузер не підтримує HTML5-відео. <a href="assets/code-space-demo.mp4">Відкрити відеоогляд</a>.</video></div></div></section>
+<section class="section" id="video"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><p class="eyebrow reveal">Зазирніть усередину</p><h2 class="section-title reveal">Подивіться, <span class="accent">як працює CODE SPACE</span></h2><p class="section-desc reveal">У трьохвилинному відеоогляді показано реальні екрани CODE SPACE: карту навчальних секторів, теоретичні пояснення, інтерактивні приклади та програмістські місії. Натисніть відтворення, щоб побачити комплекс у роботі.</p><div class="video-frame reveal" id="videoFrame"><video controls playsinline preload="none" poster="assets/video-poster.webp" width="1600" height="910" aria-label="Відеоогляд інтерактивної гри CODE SPACE для 9 класу"><source src="assets/code-space-demo.mp4" type="video/mp4">Ваш браузер не підтримує HTML5-відео. <a href="assets/code-space-demo.mp4">Відкрити відеоогляд</a>.</video></div></div></section>
 <section class="section-tight dark-slab" id="author"><div class="container"><div class="about-card reveal"><p class="eyebrow">Про авторку</p><div class="author-grid"><img class="author-photo" src="assets/author.webp" alt="Юлія Машкаринець — учителька інформатики, авторка CODE SPACE" loading="lazy" width="240" height="310" decoding="async"><div><h3>Юлія Машкаринець</h3><p>Учителька інформатики, заступниця директора з навчально-виховної роботи, авторка CODE SPACE.</p><p>У своїх розробках поєдную доступне пояснення з практикою. Хочу, щоб діти не просто переписували готовий код, а розуміли його й могли використати для розв’язування власних задач.</p></div></div></div></div></section>
-<section class="section" id="get"><div class="container"><div class="offer reveal"><div class="offer-grid"><div><p class="eyebrow">Усе для програмування в 9 класі</p><h2>CODE SPACE — <span style="color:var(--cyan)">готовий навчальний маршрут</span></h2><p class="offer-desc">Завантажуйте комплекс, обирайте потрібний сектор і проводьте уроки списків, пошуку, рядків та модульних проєктів у єдиному ігровому середовищі.</p><ul class="what-in"><li>10 секторів із теоретичними матеріалами</li><li>30 різнорівневих ситуаційних задач</li><li>Практичні роботи «Опрацювання списків» та «Опрацювання рядків»</li><li>5 модульних проєктів на вибір</li><li>Перевірка коду, підказки та збереження прогресу</li><li>Окрема інструкція для вчителя</li></ul></div><div class="buy-panel"><div class="purchase-label">Навчальний цифровий комплекс</div><h3>CODE SPACE · Python 9 клас</h3><p>Формат: HTML / ZIP-архів. Працює в браузері, без додаткових бібліотек і без інтернету після завантаження.</p><p class="promo-flag">Тестова спеціальна пропозиція</p><div class="offer-price"><strong>149 грн</strong><small>за весь комплекс</small></div>
-<div class="timer-wrap" id="promoTimer" role="timer" aria-live="off"><p class="timer-head" id="timerHeading">До завершення персонального відліку:</p><div class="timer-grid"><div class="timer-cell"><b id="timerHours">24</b><span>годин</span></div><div class="timer-cell"><b id="timerMinutes">00</b><span>хвилин</span></div><div class="timer-cell"><b id="timerSeconds">00</b><span>секунд</span></div></div><p class="timer-disclaimer">Відлік 24 годин починається з першого відвідування у вашому браузері. Це інформаційний таймер; актуальна вартість підтверджується перед оплатою.</p></div><a id="purchaseLink" class="button gold full" href="https://secure.wayforpay.com/payment/s176cc8f11cd4" target="_blank" rel="noopener noreferrer">Оплатити CODE SPACE · 149 грн ↗</a><p class="note-payment" id="paymentNote">Оплата здійснюється на захищеній сторінці WayForPay. Перед оплатою перевірте суму, склад комплекту та умови отримання.</p><div class="contact-links"><a href="mailto:studentffmi@gmail.com">studentffmi@gmail.com</a><a href="tel:+380671069875">+380 67 106 98 75</a></div><div class="offer-policies"><a href="terms.html">Умови придбання</a><a href="delivery.html">Оплата й отримання</a><a href="refund.html">Повернення коштів</a><a href="contacts.html">Контакти</a></div></div></div></div>
+<section class="section" id="get"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><div class="offer reveal"><div class="offer-grid"><div><p class="eyebrow">Усе для програмування в 9 класі</p><h2>CODE SPACE — <span style="color:var(--cyan)">готовий навчальний маршрут</span></h2><p class="offer-desc">Завантажуйте комплекс, обирайте потрібний сектор і проводьте уроки списків, пошуку, рядків та модульних проєктів у єдиному ігровому середовищі.</p><ul class="what-in"><li>10 секторів із теоретичними матеріалами</li><li>30 різнорівневих ситуаційних задач</li><li>Практичні роботи «Опрацювання списків» та «Опрацювання рядків»</li><li>5 модульних проєктів на вибір</li><li>Перевірка коду, підказки та збереження прогресу</li><li>Окрема інструкція для вчителя</li></ul></div><div class="buy-panel"><div class="purchase-label">Навчальний цифровий комплекс</div><h3>CODE SPACE · Python 9 клас</h3><p>Формат: HTML / ZIP-архів. Працює в браузері, без додаткових бібліотек і без інтернету після завантаження.</p><p class="promo-flag">Тестова спеціальна пропозиція</p><div class="offer-price"><strong>149 грн</strong><small>за весь комплекс</small></div>
+<div class="timer-wrap" id="promoTimer" role="timer" aria-live="off"><p class="timer-head" id="timerHeading">До завершення персонального відліку:</p><div class="timer-grid"><div class="timer-cell"><b id="timerHours">24</b><span>годин</span></div><div class="timer-cell"><b id="timerMinutes">00</b><span>хвилин</span></div><div class="timer-cell"><b id="timerSeconds">00</b><span>секунд</span></div></div><p class="timer-disclaimer">Відлік 24 годин починається з першого відвідування у вашому браузері. Це інформаційний таймер; актуальна вартість підтверджується перед оплатою.</p></div><a id="purchaseLink" class="button gold full" href="https://secure.wayforpay.com/payment/s176cc8f11cd4" target="_blank" rel="noopener noreferrer">Отримати доступ 149 грн</a><p class="note-payment" id="paymentNote">Оплата здійснюється на захищеній сторінці WayForPay. Перед оплатою перевірте суму, склад комплекту та умови отримання.</p><div class="contact-links"><a href="mailto:studentffmi@gmail.com">studentffmi@gmail.com</a><a href="tel:+380671069875">+380 67 106 98 75</a></div><div class="offer-policies"><a href="terms.html">Умови придбання</a><a href="delivery.html">Оплата й отримання</a><a href="refund.html">Повернення коштів</a><a href="contacts.html">Контакти</a></div></div></div></div>
   <div class="merchant-info">Продавець: <strong>ФОП Машкаринець Юлія Віталіївна</strong> · РНОКПП 3467001421 · Україна, Черкаська обл., Черкаський р-н, с. Сунки, вул. Центральна, 32 · звернення щодня 10:00–17:00.</div>
   <div class="faq"><h2>Часті запитання</h2>
     <details><summary>Чи потрібно встановлювати Python на комп’ютер?</summary><p>Ні. Для інтерактивних навчальних вправ достатньо браузера Chrome або Edge. Програми перевіряє вбудований навчальний виконавець, який підтримує конструкції, необхідні для завдань гри. Для повноцінних довільних Python-проєктів потрібне окреме середовище Python.</p></details>
@@ -280,7 +318,7 @@ menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.class
 function isHttpUrl(s){try{const u=new URL(s);return ['http:','https:'].includes(u.protocol)}catch{return false}}
 const checkout=SITE_CONFIG.checkoutUrl.trim(), price=SITE_CONFIG.price.trim();
 if(isHttpUrl(checkout)){
- const a=document.getElementById('purchaseLink');a.href=checkout;a.textContent='Оплатити CODE SPACE · 149 грн ↗';a.rel='noopener noreferrer';a.target='_blank';
+ const a=document.getElementById('purchaseLink');a.href=checkout;a.textContent='Отримати доступ '+price;a.rel='noopener noreferrer';a.target='_blank';
  document.getElementById('paymentNote').textContent='Оплата здійснюється на сторінці платіжного сервісу. Перед оплатою перевірте склад і умови отримання продукту.';
 
 }
@@ -302,38 +340,77 @@ const GALLERY_DATA = [
 ];
 (function setupSpaceCarousel(){
  const root=document.getElementById('spaceGallery');if(!root)return;
- const img=document.getElementById('galleryImage'),title=document.getElementById('galleryTitle'),desc=document.getElementById('galleryDesc'),count=document.getElementById('galleryCount'),thumbs=document.getElementById('galleryThumbs'),dots=document.getElementById('galleryDots');
+ const img=document.getElementById('galleryImage'),incoming=document.getElementById('galleryIncoming'),count=document.getElementById('galleryCount'),dots=document.getElementById('galleryDots');
  const modal=document.getElementById('galleryLightbox'),big=document.getElementById('lightboxImage'),caption=document.getElementById('lightboxCaption');
- let current=0,autoplay=null,lastFocus=null,startX=null;
- function render(){
-  const s=GALLERY_DATA[current];img.src=s.src;img.alt='CODE SPACE: '+s.title;title.textContent=s.title;desc.textContent=s.desc;count.textContent=String(current+1).padStart(2,'0')+' / '+GALLERY_DATA.length;
-  [...thumbs.children].forEach((b,i)=>{b.classList.toggle('active',i===current);b.setAttribute('aria-current',i===current?'true':'false')});
+ const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const hasHover=window.matchMedia('(hover: hover)').matches;
+ let current=0,autoplay=null,transitionTimer=null,transitioning=false,lastFocus=null,startX=null,hovered=false;
+ function updateUI(){
+  const s=GALLERY_DATA[current];count.textContent=String(current+1).padStart(2,'0')+' / '+GALLERY_DATA.length;
+  img.alt='CODE SPACE: '+s.title;
   [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current));
   if(!modal.hidden){big.src=s.src;big.alt='CODE SPACE: '+s.title;caption.textContent=(current+1)+' / '+GALLERY_DATA.length+' · '+s.title}
  }
- function go(n){current=(n+GALLERY_DATA.length)%GALLERY_DATA.length;render()}
+ function go(n,animate=true){
+  if(transitioning)return;
+  const next=(n+GALLERY_DATA.length)%GALLERY_DATA.length;if(next===current)return;
+  const s=GALLERY_DATA[next];
+  if(!animate||reduceMotion){current=next;img.src=s.src;incoming.classList.remove('is-active');updateUI();return}
+  transitioning=true;
+  const preload=new Image();
+  preload.onload=()=>{
+   incoming.src=s.src;incoming.classList.remove('is-active');
+   void incoming.offsetWidth;
+   current=next;updateUI();
+   incoming.classList.add('is-active');
+   transitionTimer=setTimeout(()=>{
+    img.src=s.src;img.alt='CODE SPACE: '+s.title;
+    incoming.classList.remove('is-active');
+    transitioning=false;
+   },570);
+  };
+  preload.onerror=()=>{transitioning=false;go(next,false)};
+  preload.src=s.src;
+ }
+ function stop(){if(autoplay!==null){clearInterval(autoplay);autoplay=null}}
+ function start(){
+  stop();
+  if(!reduceMotion&&modal.hidden&&!document.hidden&&!hovered){
+   autoplay=setInterval(()=>go(current+1),2000)
+  }
+ }
+ function manual(direction){go(current+direction);start()}
  GALLERY_DATA.forEach((s,i)=>{
-  const b=document.createElement('button');b.className='gallery-thumb';b.type='button';b.setAttribute('aria-label','Переглянути скриншот '+(i+1)+': '+s.title);
-  const im=document.createElement('img');im.src=s.src;im.loading='lazy';im.alt='';const label=document.createElement('span');label.textContent=String(i+1).padStart(2,'0');b.append(im,label);b.addEventListener('click',()=>{go(i);stop()});thumbs.append(b);
   const dot=document.createElement('span');dot.className='gallery-dot';dots.append(dot)
  });
- function openModal(){stop();lastFocus=document.activeElement;modal.hidden=false;document.body.style.overflow='hidden';render();document.getElementById('lightboxClose').focus()}
- function closeModal(){modal.hidden=true;document.body.style.overflow='';if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus()}
- document.getElementById('galleryPrev').addEventListener('click',()=>{go(current-1);stop()});
- document.getElementById('galleryNext').addEventListener('click',()=>{go(current+1);stop()});
+ function openModal(){stop();lastFocus=document.activeElement;modal.hidden=false;document.body.style.overflow='hidden';updateUI();document.getElementById('lightboxClose').focus()}
+ function closeModal(){modal.hidden=true;document.body.style.overflow='';if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();start()}
+ document.getElementById('galleryPrev').addEventListener('click',()=>manual(-1));
+ document.getElementById('galleryNext').addEventListener('click',()=>manual(1));
  document.getElementById('galleryOpen').addEventListener('click',openModal);
  document.getElementById('galleryFullscreen').addEventListener('click',openModal);
  document.getElementById('lightboxClose').addEventListener('click',closeModal);
- document.getElementById('lightboxPrev').addEventListener('click',()=>go(current-1));
- document.getElementById('lightboxNext').addEventListener('click',()=>go(current+1));
+ document.getElementById('lightboxPrev').addEventListener('click',()=>go(current-1,false));
+ document.getElementById('lightboxNext').addEventListener('click',()=>go(current+1,false));
  modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
- document.addEventListener('keydown',e=>{if(!modal.hidden){if(e.key==='Escape')closeModal();else if(e.key==='ArrowLeft')go(current-1);else if(e.key==='ArrowRight')go(current+1)}else if(root.contains(document.activeElement)){if(e.key==='ArrowLeft')go(current-1);else if(e.key==='ArrowRight')go(current+1)}});
- function onStart(e){startX=e.changedTouches[0].clientX}function onEnd(e){if(startX===null)return;let d=e.changedTouches[0].clientX-startX;if(Math.abs(d)>48){go(current+(d<0?1:-1));stop()}startX=null}
- root.addEventListener('touchstart',onStart,{passive:true});root.addEventListener('touchend',onEnd,{passive:true});modal.addEventListener('touchstart',onStart,{passive:true});modal.addEventListener('touchend',onEnd,{passive:true});
- const play=document.getElementById('galleryPlay');function stop(){if(autoplay!==null){clearInterval(autoplay);autoplay=null}play.textContent='▶ Автоперегляд';play.setAttribute('aria-pressed','false')}
- play.addEventListener('click',()=>{if(autoplay!==null){stop();return}autoplay=setInterval(()=>{if(!document.hidden)go(current+1)},4500);play.textContent='⏸ Зупинити';play.setAttribute('aria-pressed','true')});
- document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
- render();
+ document.addEventListener('keydown',e=>{
+  if(!modal.hidden){if(e.key==='Escape')closeModal();else if(e.key==='ArrowLeft')go(current-1,false);else if(e.key==='ArrowRight')go(current+1,false)}
+  else if(root.contains(document.activeElement)){
+   if(e.key==='ArrowLeft')manual(-1);else if(e.key==='ArrowRight')manual(1)
+  }
+ });
+ function onStart(e){startX=e.changedTouches[0].clientX}
+ function onEnd(e){
+  if(startX===null)return;
+  const d=e.changedTouches[0].clientX-startX;
+  if(Math.abs(d)>48){if(!modal.hidden)go(current+(d<0?1:-1),false);else manual(d<0?1:-1)}
+  startX=null
+ }
+ root.addEventListener('touchstart',onStart,{passive:true});root.addEventListener('touchend',onEnd,{passive:true});
+ modal.addEventListener('touchstart',onStart,{passive:true});modal.addEventListener('touchend',onEnd,{passive:true});
+ if(hasHover){root.addEventListener('mouseenter',()=>{hovered=true;stop()});root.addEventListener('mouseleave',()=>{hovered=false;start()})}
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start()});
+ updateUI();start();
 })();
 
 // Незалежний таймер: його запуск не залежить від інших модулів лендингу.
