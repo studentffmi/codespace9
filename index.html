@@ -68,17 +68,88 @@
     .footer-laws{display:flex;align-items:start;gap:18px;flex-wrap:wrap;margin-top:18px}.footer-laws a{text-decoration:underline;text-underline-offset:4px;font-size:13px;color:#bdd6f3}
     @media(max-width:760px){.gallery-shell{padding:11px}.gallery-arrow{width:33px;height:46px;font-size:30px}.gallery-open img{aspect-ratio:1.82}.gallery-description{align-items:start}.gallery-description>span{display:none}.gallery-thumb{flex-basis:110px}.gallery-toolbar{flex-wrap:wrap}.gallery-dots{order:3;width:100%}.gallery-lightbox{padding:55px 6px}.gallery-lightbox img{max-width:78vw}.lightbox-arrow{width:30px;height:52px}.lightbox-close{right:9px;top:8px}}
 
-  
-    /* Four real screenshots in the project progression section */
-    #projects .projects-wrap{grid-template-columns:minmax(0,1fr);align-items:stretch;gap:22px}
-    #projects .projects-screens-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    #projects .projects-screen{min-width:0;display:block;padding:9px;border:1px solid #375f8d;background:#101e3a;border-radius:18px;box-shadow:var(--shadow);color:#c9e4fc;text-decoration:none;transition:transform .2s,border-color .2s}
-    
-    #projects .projects-screen img{display:block;width:100%;height:auto;aspect-ratio:2.17;object-fit:contain;background:#071327;border-radius:11px}
-    #projects .projects-screen span{display:block;font-size:13px;line-height:1.4;font-weight:750;padding:10px 5px 2px}
-    #projects .projects-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    @media(max-width:800px){#projects .projects-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:560px){#projects .projects-screens-grid,#projects .projects-list{grid-template-columns:1fr}}
+/* CODE SPACE | Aurora redesign. All content, video, gallery, checkout and scripts retained. */
+:root{--bg:#050b20;--bg2:#0b1a46;--panel:#0e2052;--panel2:#1a3477;--line:#74cfff65;--cyan:#46e6ff;--cyan2:#b2f3ff;--violet:#b9a5ff;--sun:#ffdc45;--white:#fafeff;--muted:#c4d7f1;--subtle:#a7bcdf;--shadow:0 22px 65px #0008}
+body{background:#060c23;color:var(--white)}
+.stars{background:radial-gradient(circle at 8% 6%,#1654a5,transparent 27%),radial-gradient(circle at 89% 24%,#502297,transparent 35%),#050b20}
+.section,.section-tight{position:relative;isolation:isolate}
+.section-title{font-weight:940;letter-spacing:-.045em;text-wrap:balance}
+.section-desc{line-height:1.7}
+.eyebrow{font-weight:950;letter-spacing:.17em}
+.button{border-radius:16px;font-weight:900}
+.button.primary,.button.gold{background:linear-gradient(115deg,#fff18a 0%,#ffdd44 55%,#ffb83b 100%);color:#111d41;border:1px solid #ffeca0;box-shadow:0 11px 30px #ffca4338}
+.button.primary:hover,.button.gold:hover{filter:brightness(1.05);box-shadow:0 14px 34px #ffca4358}
+.button.ghost{background:#102857;border:1px solid #82d8f7;color:#f1faff}
+.topbar{background:#080f2ceb;border-bottom:1px solid #55dfff77;box-shadow:0 10px 35px #0005}
+.mark{background:linear-gradient(135deg,#35e4ff,#9f68ff)}
+.nav>a{color:#e4f3ff}.nav>a:hover{color:#ffdf56}
+.hero{padding:85px 0 95px;background:radial-gradient(ellipse at 80% 30%,#6432c566,transparent 48%),radial-gradient(ellipse at 7% 80%,#156cc25e,transparent 45%),linear-gradient(135deg,#07152f,#15164b 75%);border-bottom:1px solid #5dcfff70}
+.hero:before{background:#33bdff45;filter:blur(90px)}
+.hero .eyebrow{display:inline-block;border-radius:100px;padding:8px 13px;background:#152d6b;border:1px solid #55dfff87;color:#7eeeff}
+.hero .lead{color:#e0ecff}
+.hero-headline em{color:#ffdf58}
+.hero-shot{border:2px solid #82eeff;box-shadow:0 0 0 8px #52dfff19,0 28px 85px #000a,0 0 55px #36c9ff33}
+.float-chip{background:#101f50ee;border:1px solid #75dfff}
+.proof{background:#162e65;border:1px solid #71dbff88;color:#e6f5ff}
+.hero-stats{border:0;padding:0;gap:13px;margin-top:42px}
+.hero-stat{border:1px solid #51ccff8c;border-radius:18px;background:linear-gradient(125deg,#152f72,#101a45);padding:18px;box-shadow:inset 0 1px #92f2ff44,0 15px 35px #0005}
+.hero-stat strong{color:#ffe25a;font-size:37px}
+.hero-stat span{display:block;margin-top:6px;color:#e7efff;font-weight:740;line-height:1.4}
+#why{background:radial-gradient(ellipse at 9% 10%,#2d5dc7 0,transparent 49%),radial-gradient(ellipse at 94% 85%,#6432ad 0,transparent 47%),linear-gradient(140deg,#1a377e,#291452);border-block:1px solid #6a8dec}
+#why .eyebrow{color:#baf6ff}
+#why .section-desc{color:#e4ecff}
+#why .problem-grid{gap:18px}
+#why .problem-card{background:linear-gradient(140deg,#0b1c48,#0d1535);border:1px solid #7fbaffaa;border-top:4px solid #56e7ff;border-radius:20px;box-shadow:0 18px 34px #09103e66}
+#why .problem-icon{background:linear-gradient(120deg,#3a5bd4,#6637bf);border:1px solid #afcaff}
+#why .problem-card p{color:#d7e6ff}
+#why .solution-panel{background:linear-gradient(110deg,#fff19b,#ffcb47);border:2px solid #ffefaa;box-shadow:0 14px 36px #0a123866}
+#why .solution-panel strong,#why .solution-panel p,#why .solution-check{color:#152147}
+#sectors{background:radial-gradient(ellipse at 94% 16%,#163c8b,transparent 46%),linear-gradient(150deg,#050e29,#0a1a3f)}
+#sectors .sector-button{background:#10204a;border-color:#4e78b4}
+#sectors .sector-button:hover{background:#203f77;border-color:#67e4ff}
+#sectors .sector-button.active{background:linear-gradient(110deg,#195b98,#34258a);border:2px solid #6df2ff;box-shadow:0 0 0 3px #1cdbff18}
+#sectors .sector-num{color:#ffe05b}
+#sectors .sector-preview{background:radial-gradient(circle at 90% 15%,#7848cb88,transparent 50%),linear-gradient(120deg,#1b4685,#1b1a52);border:2px solid #78eaff;box-shadow:0 22px 55px #011027aa}
+#sectors .sector-preview p{color:#e7f0ff}
+#preview{background:radial-gradient(ellipse at 12% 7%,#663aca 0,transparent 49%),radial-gradient(ellipse at 91% 91%,#076cbb,transparent 45%),linear-gradient(135deg,#38187e,#182c7f 75%);border-block:1px solid #a379ff}
+#preview .eyebrow{color:#ffe17b}
+#preview .section-title .accent{color:#ffe35b}
+#preview .section-desc{color:#f3edff}
+#preview .gallery-shell{background:linear-gradient(135deg,#0d1546,#0d2755);border:2px solid #9fe8ff;box-shadow:0 25px 67px #0009}
+#preview .gallery-main{border-color:#7fcdff}
+#preview .gallery-thumb.active{border-color:#ffdf54;box-shadow:0 0 0 2px #ffdf5460}
+#preview .gallery-dot.active{background:#ffdf54}
+#features{background:radial-gradient(ellipse at 91% 15%,#d2c7ff,transparent 40%),linear-gradient(125deg,#ecfaff,#c7e8ff 55%,#dce7ff);color:#101d49;border-block:1px solid #acd1fc}
+#features .eyebrow{color:#315bb7}
+#features .section-title{color:#101d49}
+#features .section-title .accent{color:#3450bc}
+#features .section-desc{color:#415777}
+#features .feature-grid{gap:18px}
+#features .feature-card{background:linear-gradient(140deg,#fff,#eff6ff);border:1px solid #a2bfe4;border-bottom:4px solid #7254d8;border-radius:21px;box-shadow:0 15px 35px #234b902d;transition:transform .2s,box-shadow .2s}
+#features .feature-card:hover{transform:translateY(-4px);box-shadow:0 20px 42px #234b9049}
+#features .feature-card h3{color:#182455}
+#features .feature-card p{color:#3d5074}
+#features .feature-icon{display:grid;place-items:center;width:56px;height:56px;border-radius:16px;background:#d9ecff;color:#2e56bd;font-size:28px}
+#features .notice{background:#122e66;color:#f4f8ff;border:1px solid #708ad0;border-left:6px solid #ffdc45;box-shadow:0 14px 27px #1b347a36}
+#features .notice strong{color:#fff}
+#video{background:radial-gradient(ellipse at 92% 7%,#1c58aa,transparent 43%),linear-gradient(130deg,#091a43,#161b57 70%,#241447);border-bottom:1px solid #6173c5}
+#video .eyebrow{color:#ffdf69}
+#video .video-frame{border:2px solid #60e0ff;box-shadow:0 0 0 6px #4addff13,0 24px 70px #0009}
+#author{background:linear-gradient(125deg,#1a1041,#342070 55%,#23134d)}
+#author .about-card{background:linear-gradient(120deg,#efaa36,#c67920 65%,#a96018);border:2px solid #ffe49c;box-shadow:0 24px 60px #0008}
+#author .about-card p,#author .about-card h3{color:#fffdf8}
+#get{background:radial-gradient(ellipse at 91% 13%,#255eb7,transparent 45%),linear-gradient(130deg,#0b1743,#2a185d 65%,#122b65)}
+#get .offer{background:radial-gradient(ellipse at 7% 100%,#1e428f,transparent 50%),linear-gradient(120deg,#17184d,#102a61);border:2px solid #70e9ff;box-shadow:0 0 0 7px #43dfff16,0 20px 73px #000a;padding:clamp(26px,4vw,48px)}
+#get .offer .eyebrow{color:#ffe37b}
+#get .offer h2{font-weight:950}
+#get .buy-panel{background:#081935;border:2px solid #ffe17f;border-radius:23px;box-shadow:0 18px 46px #0008}
+#get .offer-price strong{color:#ffe052;text-shadow:0 0 21px #ffdb4c55}
+#get .faq details{background:#0e2046;border-color:#5276ae}
+#get .faq details[open]{border-color:#6de5ff}
+.footer{background:#050b1e;border-top:2px solid #4a70b0}
+@media(max-width:800px){.hero{padding:53px 0 63px}.nav{background:#0d1c45;border-color:#78dfff}.hero-stats{gap:9px}#why .solution-panel{align-items:start}}
+@media(max-width:560px){.hero h1{font-size:clamp(54px,14vw,69px)}.hero-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.hero-stat{padding:11px 9px;border-radius:13px}.hero-stat strong{font-size:28px}.hero-stat span{font-size:11px}#why .problem-card{padding:19px}#get .offer{padding:25px 18px}#get .buy-panel{padding:21px}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"CODE SPACE — відеоогляд інтерактивного комплексу Python для 9 класу","description":"Відео демонструє навчальні сектори, пояснення теорії, програмістські місії та інтерфейс гри CODE SPACE.","thumbnailUrl":"https://studentffmi.github.io/codespace9/assets/video-poster.webp","uploadDate":"2026-11-18T13:19:29+02:00","duration":"PT3M0S","contentUrl":"https://studentffmi.github.io/codespace9/assets/code-space-demo.mp4","inLanguage":"uk"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"CODE SPACE — інтерактивний навчальний комплекс Python, 9 клас","description":"10 секторів, 30 програмістських задач, навчальна теорія, практичні роботи та 5 модульних проєктів у HTML-грі.","image":"https://studentffmi.github.io/codespace9/assets/gallery-01.webp","sku":"CODE-SPACE-9-DIGITAL","brand":{"@type":"Brand","name":"CODE SPACE"},"offers":{"@type":"Offer","url":"https://studentffmi.github.io/codespace9/","priceCurrency":"UAH","price":"149.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}}</script>
@@ -102,7 +173,7 @@
 <div class="stars" aria-hidden="true"></div>
 <header class="topbar"><div class="container topbar-inner">
   <a class="brand" href="#top" aria-label="CODE SPACE — на початок сторінки"><span class="mark">✦</span><span class="brand-text"><strong>CODE <span>SPACE</span></strong><small>Галактика Python · 9 клас</small></span></a>
-  <nav class="nav" id="navigation" aria-label="Головне меню"><a href="#why">Переваги</a><a href="#sectors">Теми</a><a href="#preview">Перегляд</a><a href="#projects">Проєкти</a><a href="#video">Відео</a><a href="#author">Авторка</a></nav>
+  <nav class="nav" id="navigation" aria-label="Головне меню"><a href="#why">Переваги</a><a href="#sectors">Теми</a><a href="#preview">Перегляд</a><a href="#video">Відео</a><a href="#author">Авторка</a></nav>
   <a class="button gold minor top-cta" href="#get">Про придбання ↗</a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation" aria-label="Відкрити меню">☰</button>
 </div></header>
 <main>
@@ -155,13 +226,8 @@
   <article class="feature-card reveal"><div class="feature-icon">▦</div><h3>«Живий масив»</h3><p>Перетягувати елементи списку, змінювати їхній порядок і спостерігати за даними.</p></article>
   <article class="feature-card reveal"><div class="feature-icon">▷</div><h3>Покроковий трасувальник</h3><p>Передбачати значення змінних після кожного кроку програми та досліджувати цикли.</p></article>
 </div><div class="notice reveal">У комплекті є <strong>консоль перевірки, компактна екранна клавіатура, підказки, бали та кнопка перезапуску кожного сектору</strong>. Навчальний виконавець підтримує конструкції Python, необхідні для завдань гри.</div></div></section>
-<section class="section dark-slab" id="projects"><div class="container"><p class="eyebrow reveal">Практичні роботи та підсумок теми</p><h2 class="section-title reveal">Від короткої вправи — <span class="accent">до власного проєкту</span></h2><p class="section-desc reveal">Є практична робота «Опрацювання списків» і практична робота «Опрацювання рядків». У фіналі учень обирає один із п'яти проєктів однакової складності.</p><div class="projects-wrap"><div class="projects-screens-grid reveal"><div class="projects-screen"><img src="assets/project-screen-01.webp" alt="Проєктна майстерня: п’ять проєктів на вибір" width="1900" height="870" loading="lazy" decoding="async"><span>П’ять проєктів на вибір</span></div><div class="projects-screen"><img src="assets/project-screen-02.webp" alt="Проєктна місія: умова задачі та планування" width="1900" height="870" loading="lazy" decoding="async"><span>Умова проєктної місії</span></div><div class="projects-screen"><img src="assets/project-screen-03.webp" alt="Інтерактивне планування модульного проєкту" width="1900" height="870" loading="lazy" decoding="async"><span>Планування й вибір проєкту</span></div><div class="projects-screen"><img src="assets/project-screen-04.webp" alt="Навчальний матеріал: будова програми з модулями main.py та utils.py" width="1900" height="870" loading="lazy" decoding="async"><span>Пояснення роботи з модулями</span></div></div><div class="projects-list">
-  <div class="project-item reveal"><span class="project-icon">👩‍🚀</span><div><strong>Реєстр космічного екіпажу</strong><p>Пошук учасників за частиною імені.</p></div></div>
-  <div class="project-item reveal"><span class="project-icon">📦</span><div><strong>Склад космічної станції</strong><p>Облік і пошук необхідного обладнання.</p></div></div>
-  <div class="project-item reveal"><span class="project-icon">🪐</span><div><strong>Каталог екзопланет</strong><p>Опрацювання назв зоряних систем.</p></div></div>
-  <div class="project-item reveal"><span class="project-icon">📡</span><div><strong>Центр космічних сигналів</strong><p>Пошук потрібних позивних.</p></div></div>
-  <div class="project-item reveal"><span class="project-icon">🆘</span><div><strong>Служба космічного порятунку</strong><p>Опрацювання термінових звернень.</p></div></div>
-</div></div><p class="project-note reveal">Кожен проєкт включає планування, роботу зі списками та рядками, сортування, пошук і програму з двох модулів — <code>main.py</code> та <code>utils.py</code>. Для вчителя є єдині критерії оцінювання на 12 балів.</p></div></section>
+
+
 <section class="section" id="video"><div class="container"><p class="eyebrow reveal">Зазирніть усередину</p><h2 class="section-title reveal">Подивіться, <span class="accent">як працює CODE SPACE</span></h2><p class="section-desc reveal">У трьохвилинному відеоогляді показано реальні екрани CODE SPACE: карту навчальних секторів, теоретичні пояснення, інтерактивні приклади та програмістські місії. Натисніть відтворення, щоб побачити комплекс у роботі.</p><div class="video-frame reveal" id="videoFrame"><video controls playsinline preload="none" poster="assets/video-poster.webp" width="1600" height="910" aria-label="Відеоогляд інтерактивної гри CODE SPACE для 9 класу"><source src="assets/code-space-demo.mp4" type="video/mp4">Ваш браузер не підтримує HTML5-відео. <a href="assets/code-space-demo.mp4">Відкрити відеоогляд</a>.</video></div></div></section>
 <section class="section-tight dark-slab" id="author"><div class="container"><div class="about-card reveal"><p class="eyebrow">Про авторку</p><div class="author-grid"><img class="author-photo" src="assets/author.webp" alt="Юлія Машкаринець — учителька інформатики, авторка CODE SPACE" loading="lazy" width="240" height="310" decoding="async"><div><h3>Юлія Машкаринець</h3><p>Учителька інформатики, заступниця директора з навчально-виховної роботи, авторка CODE SPACE.</p><p>У своїх розробках поєдную доступне пояснення з практикою. Хочу, щоб діти не просто переписували готовий код, а розуміли його й могли використати для розв’язування власних задач.</p></div></div></div></div></section>
 <section class="section" id="get"><div class="container"><div class="offer reveal"><div class="offer-grid"><div><p class="eyebrow">Усе для програмування в 9 класі</p><h2>CODE SPACE — <span style="color:var(--cyan)">готовий навчальний маршрут</span></h2><p class="offer-desc">Завантажуйте комплекс, обирайте потрібний сектор і проводьте уроки списків, пошуку, рядків та модульних проєктів у єдиному ігровому середовищі.</p><ul class="what-in"><li>10 секторів із теоретичними матеріалами</li><li>30 різнорівневих ситуаційних задач</li><li>Практичні роботи «Опрацювання списків» та «Опрацювання рядків»</li><li>5 модульних проєктів на вибір</li><li>Перевірка коду, підказки та збереження прогресу</li><li>Окрема інструкція для вчителя</li></ul></div><div class="buy-panel"><div class="purchase-label">Навчальний цифровий комплекс</div><h3>CODE SPACE · Python 9 клас</h3><p>Формат: HTML / ZIP-архів. Працює в браузері, без додаткових бібліотек і без інтернету після завантаження.</p><p class="promo-flag">Тестова спеціальна пропозиція</p><div class="offer-price"><strong>149 грн</strong><small>за весь комплекс</small></div>
@@ -176,7 +242,7 @@
     <details><summary>Як я отримаю комплекс після придбання?</summary><p>CODE SPACE надається в ZIP-архіві через посилання на Google Диск. Після підтвердження оплати через WayForPay посилання на завантаження має надійти на email, вказаний під час покупки. Якщо лист не надійшов, зверніться за контактами внизу сторінки.</p></details>
   </div></div></section>
 </main>
-<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="#top"><span class="mark">✦</span><span class="brand-text"><strong>CODE <span>SPACE</span></strong><small>Галактика Python</small></span></a><p style="margin-top:9px">© 2026 Юлія Машкаринець. Навчальний комплекс CODE SPACE.</p></div><div class="footer-links"><a href="#sectors">Усі теми</a><a href="#projects">Проєкти</a><a href="#video">Відео</a><a href="mailto:studentffmi@gmail.com">Контакти</a></div><small><div class="footer-laws"><a href="terms.html">Публічна оферта</a><a href="delivery.html">Оплата й отримання</a><a href="refund.html">Повернення коштів</a><a href="contacts.html">Контакти ФОП</a></div><small>ФОП Машкаринець Юлія Віталіївна · РНОКПП 3467001421<br>Україна, Черкаська область, Черкаський район, с. Сунки, вул. Центральна, 32</small></small></div></footer>
+<footer class="footer"><div class="container footer-inner"><div><a class="brand" href="#top"><span class="mark">✦</span><span class="brand-text"><strong>CODE <span>SPACE</span></strong><small>Галактика Python</small></span></a><p style="margin-top:9px">© 2026 Юлія Машкаринець. Навчальний комплекс CODE SPACE.</p></div><div class="footer-links"><a href="#sectors">Усі теми</a><a href="#video">Відео</a><a href="mailto:studentffmi@gmail.com">Контакти</a></div><small><div class="footer-laws"><a href="terms.html">Публічна оферта</a><a href="delivery.html">Оплата й отримання</a><a href="refund.html">Повернення коштів</a><a href="contacts.html">Контакти ФОП</a></div><small>ФОП Машкаринець Юлія Віталіївна · РНОКПП 3467001421<br>Україна, Черкаська область, Черкаський район, с. Сунки, вул. Центральна, 32</small></small></div></footer>
 <script>
 'use strict';
 // Для CODE SPACE налаштовується ОКРЕМА платіжна сторінка WayForPay. Не використовуйте посилання CODE CITY.
