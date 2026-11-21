@@ -184,6 +184,20 @@ body{background:#060c23;color:var(--white)}
 @media(max-width:760px){.gallery-open{aspect-ratio:1.82}.gallery-toolbar-clean{padding-top:12px}.gallery-main .gallery-arrow{width:34px;height:46px}.gallery-toolbar-clean .gallery-dots{gap:5px}.gallery-toolbar-clean .gallery-dot{flex-basis:5px;width:5px;height:5px}.gallery-toolbar-clean .gallery-dot.active{flex-basis:15px;width:15px}}
 @media(prefers-reduced-motion:reduce){.hero::after,#why::after,#sectors::after,#preview::after,#video::after,#author::after,#get::after{animation:none;opacity:.27}.space-comet{display:none}.gallery-open .gallery-incoming{transition:none}}
 
+
+/* Stable one-image screenshot fade: no overlapping screenshots */
+.gallery-open img#galleryImage{opacity:1;transform:none;transition:opacity .16s ease-in-out}
+.gallery-open img#galleryImage.is-fading{opacity:0}
+@media(prefers-reduced-motion:reduce){.gallery-open img#galleryImage{transition:none}}
+.video-frame .video-play-overlay{position:absolute;inset:0;z-index:4;width:100%;height:100%;border:0;border-radius:inherit;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;cursor:pointer;color:#fff;background:linear-gradient(180deg,#050c1e22,#050c1e6e);transition:background .2s}
+.video-frame .video-play-overlay[hidden]{display:none!important}
+.video-frame .video-play-overlay:hover{background:linear-gradient(180deg,#050c1e22,#050c1e8a)}
+.video-play-disc{display:grid;place-items:center;width:94px;height:94px;border-radius:50%;background:#14274fa9;border:2px solid #ffffffe6;box-shadow:0 0 0 13px #ffffff24,0 14px 45px #0008;backdrop-filter:blur(8px);transition:transform .2s}
+.video-play-overlay:hover .video-play-disc{transform:scale(1.07)}
+.video-play-triangle{width:0;height:0;border-top:19px solid transparent;border-bottom:19px solid transparent;border-left:30px solid #fff;margin-left:8px}
+.video-play-label{font-weight:850;font-size:clamp(14px,1.4vw,19px);text-shadow:0 2px 14px #000;padding:6px 18px;border-radius:999px;background:#09143277;border:1px solid #ffffff55;backdrop-filter:blur(8px)}
+@media(max-width:560px){.video-play-disc{width:70px;height:70px;box-shadow:0 0 0 8px #ffffff22}.video-play-triangle{border-top-width:14px;border-bottom-width:14px;border-left-width:23px;margin-left:6px}}
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"CODE SPACE — відеоогляд інтерактивного комплексу Python для 9 класу","description":"Відео демонструє навчальні сектори, пояснення теорії, програмістські місії та інтерфейс гри CODE SPACE.","thumbnailUrl":"https://studentffmi.github.io/codespace9/assets/video-poster.webp","uploadDate":"2026-11-18T13:19:29+02:00","duration":"PT3M0S","contentUrl":"https://studentffmi.github.io/codespace9/assets/code-space-demo.mp4","inLanguage":"uk"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"CODE SPACE — інтерактивний навчальний комплекс Python, 9 клас","description":"10 секторів, 30 програмістських задач, навчальна теорія, практичні роботи та 5 модульних проєктів у HTML-грі.","image":"https://studentffmi.github.io/codespace9/assets/gallery-01.webp","sku":"CODE-SPACE-9-DIGITAL","brand":{"@type":"Brand","name":"CODE SPACE"},"offers":{"@type":"Offer","url":"https://studentffmi.github.io/codespace9/","priceCurrency":"UAH","price":"149.00","availability":"https://schema.org/InStock","itemCondition":"https://schema.org/NewCondition"}}</script>
@@ -246,7 +260,7 @@ body{background:#060c23;color:var(--white)}
     <button class="gallery-arrow gallery-prev" type="button" id="galleryPrev" aria-label="Попередній скриншот">‹</button>
     <button class="gallery-open" type="button" id="galleryOpen" aria-label="Збільшити поточний скриншот">
       <img class="gallery-layer" id="galleryImage" src="assets/gallery-01.webp" width="1720" height="785" alt="Карта секторів CODE SPACE">
-      <img class="gallery-layer gallery-incoming" id="galleryIncoming" alt="" aria-hidden="true">
+      
     </button>
     <button class="gallery-arrow gallery-next" type="button" id="galleryNext" aria-label="Наступний скриншот">›</button>
   </div>
@@ -266,7 +280,7 @@ body{background:#060c23;color:var(--white)}
 </div><div class="notice reveal">У комплекті є <strong>консоль перевірки, компактна екранна клавіатура, підказки, бали та кнопка перезапуску кожного сектору</strong>. Навчальний виконавець підтримує конструкції Python, необхідні для завдань гри.</div></div></section>
 
 
-<section class="section" id="video"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><p class="eyebrow reveal">Зазирніть усередину</p><h2 class="section-title reveal">Подивіться, <span class="accent">як працює CODE SPACE</span></h2><p class="section-desc reveal">У трьохвилинному відеоогляді показано реальні екрани CODE SPACE: карту навчальних секторів, теоретичні пояснення, інтерактивні приклади та програмістські місії. Натисніть відтворення, щоб побачити комплекс у роботі.</p><div class="video-frame reveal" id="videoFrame"><video controls playsinline preload="none" poster="assets/video-poster.webp" width="1600" height="910" aria-label="Відеоогляд інтерактивної гри CODE SPACE для 9 класу"><source src="assets/code-space-demo.mp4" type="video/mp4">Ваш браузер не підтримує HTML5-відео. <a href="assets/code-space-demo.mp4">Відкрити відеоогляд</a>.</video></div></div></section>
+<section class="section" id="video"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><p class="eyebrow reveal">Зазирніть усередину</p><h2 class="section-title reveal">Подивіться, <span class="accent">як працює CODE SPACE</span></h2><p class="section-desc reveal">У трьохвилинному відеоогляді показано реальні екрани CODE SPACE: карту навчальних секторів, теоретичні пояснення, інтерактивні приклади та програмістські місії. Натисніть відтворення, щоб побачити комплекс у роботі.</p><div class="video-frame reveal" id="videoFrame"><video controls playsinline preload="none" poster="assets/video-poster.webp" width="1600" height="910" aria-label="Відеоогляд інтерактивної гри CODE SPACE для 9 класу"><source src="assets/code-space-demo.mp4" type="video/mp4">Ваш браузер не підтримує HTML5-відео. <a href="assets/code-space-demo.mp4">Відкрити відеоогляд</a>.</video><button type="button" class="video-play-overlay" id="videoPlayOverlay" aria-label="Відтворити відеоогляд CODE SPACE"><span class="video-play-disc" aria-hidden="true"><span class="video-play-triangle"></span></span><span class="video-play-label">Дивитися відеоогляд</span></button></div></div></section>
 <section class="section-tight dark-slab" id="author"><div class="container"><div class="about-card reveal"><p class="eyebrow">Про авторку</p><div class="author-grid"><img class="author-photo" src="assets/author.webp" alt="Юлія Машкаринець — учителька інформатики, авторка CODE SPACE" loading="lazy" width="240" height="310" decoding="async"><div><h3>Юлія Машкаринець</h3><p>Учителька інформатики, заступниця директора з навчально-виховної роботи, авторка CODE SPACE.</p><p>У своїх розробках поєдную доступне пояснення з практикою. Хочу, щоб діти не просто переписували готовий код, а розуміли його й могли використати для розв’язування власних задач.</p></div></div></div></div></section>
 <section class="section" id="get"><div class="comet-sky" aria-hidden="true"><span class="space-comet"></span><span class="space-comet"></span><span class="space-comet"></span></div><div class="container"><div class="offer reveal"><div class="offer-grid"><div><p class="eyebrow">Усе для програмування в 9 класі</p><h2>CODE SPACE — <span style="color:var(--cyan)">готовий навчальний маршрут</span></h2><p class="offer-desc">Завантажуйте комплекс, обирайте потрібний сектор і проводьте уроки списків, пошуку, рядків та модульних проєктів у єдиному ігровому середовищі.</p><ul class="what-in"><li>10 секторів із теоретичними матеріалами</li><li>30 різнорівневих ситуаційних задач</li><li>Практичні роботи «Опрацювання списків» та «Опрацювання рядків»</li><li>5 модульних проєктів на вибір</li><li>Перевірка коду, підказки та збереження прогресу</li><li>Окрема інструкція для вчителя</li></ul></div><div class="buy-panel"><div class="purchase-label">Навчальний цифровий комплекс</div><h3>CODE SPACE · Python 9 клас</h3><p>Формат: HTML / ZIP-архів. Працює в браузері, без додаткових бібліотек і без інтернету після завантаження.</p><p class="promo-flag">Тестова спеціальна пропозиція</p><div class="offer-price"><strong>149 грн</strong><small>за весь комплекс</small></div>
 <div class="timer-wrap" id="promoTimer" role="timer" aria-live="off"><p class="timer-head" id="timerHeading">До завершення персонального відліку:</p><div class="timer-grid"><div class="timer-cell"><b id="timerHours">24</b><span>годин</span></div><div class="timer-cell"><b id="timerMinutes">00</b><span>хвилин</span></div><div class="timer-cell"><b id="timerSeconds">00</b><span>секунд</span></div></div><p class="timer-disclaimer">Відлік 24 годин починається з першого відвідування у вашому браузері. Це інформаційний таймер; актуальна вартість підтверджується перед оплатою.</p></div><a id="purchaseLink" class="button gold full" href="https://secure.wayforpay.com/payment/s176cc8f11cd4" target="_blank" rel="noopener noreferrer">Отримати доступ 149 грн</a><p class="note-payment" id="paymentNote">Оплата здійснюється на захищеній сторінці WayForPay. Перед оплатою перевірте суму, склад комплекту та умови отримання.</p><div class="contact-links"><a href="mailto:studentffmi@gmail.com">studentffmi@gmail.com</a><a href="tel:+380671069875">+380 67 106 98 75</a></div><div class="offer-policies"><a href="terms.html">Умови придбання</a><a href="delivery.html">Оплата й отримання</a><a href="refund.html">Повернення коштів</a><a href="contacts.html">Контакти</a></div></div></div></div>
@@ -338,79 +352,70 @@ const GALLERY_DATA = [
  {src:'assets/gallery-11.webp',title:"Проєктна діяльність",desc:"Самостійне планування й реалізація проєкту"},
  {src:'assets/gallery-12.webp',title:"Інструкція для вчителя",desc:"Проведення уроку, оцінювання й технічні поради"}
 ];
+
 (function setupSpaceCarousel(){
  const root=document.getElementById('spaceGallery');if(!root)return;
- const img=document.getElementById('galleryImage'),incoming=document.getElementById('galleryIncoming'),count=document.getElementById('galleryCount'),dots=document.getElementById('galleryDots');
+ const img=document.getElementById('galleryImage'),count=document.getElementById('galleryCount'),dots=document.getElementById('galleryDots');
  const modal=document.getElementById('galleryLightbox'),big=document.getElementById('lightboxImage'),caption=document.getElementById('lightboxCaption');
- const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- const hasHover=window.matchMedia('(hover: hover)').matches;
- let current=0,autoplay=null,transitionTimer=null,transitioning=false,lastFocus=null,startX=null,hovered=false;
- function updateUI(){
-  const s=GALLERY_DATA[current];count.textContent=String(current+1).padStart(2,'0')+' / '+GALLERY_DATA.length;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let index=0,busy=false,token=0,timer=null,startX=null,lastFocus=null;
+ GALLERY_DATA.forEach(()=>{const d=document.createElement('span');d.className='gallery-dot';dots.append(d)});
+ function paint(){
+  const s=GALLERY_DATA[index];count.textContent=String(index+1).padStart(2,'0')+' / '+GALLERY_DATA.length;
   img.alt='CODE SPACE: '+s.title;
-  [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===current));
-  if(!modal.hidden){big.src=s.src;big.alt='CODE SPACE: '+s.title;caption.textContent=(current+1)+' / '+GALLERY_DATA.length+' · '+s.title}
+  [...dots.children].forEach((d,i)=>d.classList.toggle('active',i===index));
+  if(!modal.hidden){big.src=s.src;big.alt='CODE SPACE: '+s.title;caption.textContent=(index+1)+' / '+GALLERY_DATA.length+' · '+s.title}
  }
  function go(n,animate=true){
-  if(transitioning)return;
-  const next=(n+GALLERY_DATA.length)%GALLERY_DATA.length;if(next===current)return;
-  const s=GALLERY_DATA[next];
-  if(!animate||reduceMotion){current=next;img.src=s.src;incoming.classList.remove('is-active');updateUI();return}
-  transitioning=true;
+  const next=(n+GALLERY_DATA.length)%GALLERY_DATA.length;
+  if(next===index||busy)return;
+  const src=GALLERY_DATA[next].src;
+  if(!animate||reduce){token++;index=next;img.src=src;img.classList.remove('is-fading');paint();return}
+  busy=true;const id=++token;
   const preload=new Image();
   preload.onload=()=>{
-   incoming.src=s.src;incoming.classList.remove('is-active');
-   void incoming.offsetWidth;
-   current=next;updateUI();
-   incoming.classList.add('is-active');
-   transitionTimer=setTimeout(()=>{
-    img.src=s.src;img.alt='CODE SPACE: '+s.title;
-    incoming.classList.remove('is-active');
-    transitioning=false;
-   },570);
+   if(id!==token)return;
+   img.classList.add('is-fading');
+   setTimeout(()=>{
+    if(id!==token)return;
+    index=next;img.src=src;paint();
+    void img.offsetWidth;img.classList.remove('is-fading');
+    setTimeout(()=>{if(id===token)busy=false},190)
+   },160)
   };
-  preload.onerror=()=>{transitioning=false;go(next,false)};
-  preload.src=s.src;
+  preload.onerror=()=>{if(id===token)busy=false};
+  preload.src=src
  }
- function stop(){if(autoplay!==null){clearInterval(autoplay);autoplay=null}}
- function start(){
-  stop();
-  if(!reduceMotion&&modal.hidden&&!document.hidden&&!hovered){
-   autoplay=setInterval(()=>go(current+1),2000)
-  }
+ function stop(){if(timer!==null){clearInterval(timer);timer=null}}
+ function start(){stop();if(!document.hidden&&modal.hidden&&!reduce)timer=setInterval(()=>go(index+1),2000)}
+ function manual(d){if(busy)return;go(index+d);start()}
+ function open(){
+  stop();token++;busy=false;img.classList.remove('is-fading');
+  lastFocus=document.activeElement;modal.hidden=false;document.body.style.overflow='hidden';paint();
+  document.getElementById('lightboxClose').focus()
  }
- function manual(direction){go(current+direction);start()}
- GALLERY_DATA.forEach((s,i)=>{
-  const dot=document.createElement('span');dot.className='gallery-dot';dots.append(dot)
- });
- function openModal(){stop();lastFocus=document.activeElement;modal.hidden=false;document.body.style.overflow='hidden';updateUI();document.getElementById('lightboxClose').focus()}
- function closeModal(){modal.hidden=true;document.body.style.overflow='';if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();start()}
+ function close(){
+  modal.hidden=true;document.body.style.overflow='';
+  if(lastFocus&&typeof lastFocus.focus==='function')lastFocus.focus();start()
+ }
  document.getElementById('galleryPrev').addEventListener('click',()=>manual(-1));
  document.getElementById('galleryNext').addEventListener('click',()=>manual(1));
- document.getElementById('galleryOpen').addEventListener('click',openModal);
- document.getElementById('galleryFullscreen').addEventListener('click',openModal);
- document.getElementById('lightboxClose').addEventListener('click',closeModal);
- document.getElementById('lightboxPrev').addEventListener('click',()=>go(current-1,false));
- document.getElementById('lightboxNext').addEventListener('click',()=>go(current+1,false));
- modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
- document.addEventListener('keydown',e=>{
-  if(!modal.hidden){if(e.key==='Escape')closeModal();else if(e.key==='ArrowLeft')go(current-1,false);else if(e.key==='ArrowRight')go(current+1,false)}
-  else if(root.contains(document.activeElement)){
-   if(e.key==='ArrowLeft')manual(-1);else if(e.key==='ArrowRight')manual(1)
-  }
+ document.getElementById('galleryOpen').addEventListener('click',open);
+ document.getElementById('galleryFullscreen').addEventListener('click',open);
+ document.getElementById('lightboxClose').addEventListener('click',close);
+ document.getElementById('lightboxPrev').addEventListener('click',()=>go(index-1,false));
+ document.getElementById('lightboxNext').addEventListener('click',()=>go(index+1,false));
+ modal.addEventListener('click',event=>{if(event.target===modal)close()});
+ document.addEventListener('keydown',event=>{
+  if(!modal.hidden){if(event.key==='Escape')close();else if(event.key==='ArrowLeft')go(index-1,false);else if(event.key==='ArrowRight')go(index+1,false)}
+  else if(root.contains(document.activeElement)){if(event.key==='ArrowLeft')manual(-1);else if(event.key==='ArrowRight')manual(1)}
  });
- function onStart(e){startX=e.changedTouches[0].clientX}
- function onEnd(e){
-  if(startX===null)return;
-  const d=e.changedTouches[0].clientX-startX;
-  if(Math.abs(d)>48){if(!modal.hidden)go(current+(d<0?1:-1),false);else manual(d<0?1:-1)}
-  startX=null
- }
- root.addEventListener('touchstart',onStart,{passive:true});root.addEventListener('touchend',onEnd,{passive:true});
- modal.addEventListener('touchstart',onStart,{passive:true});modal.addEventListener('touchend',onEnd,{passive:true});
- if(hasHover){root.addEventListener('mouseenter',()=>{hovered=true;stop()});root.addEventListener('mouseleave',()=>{hovered=false;start()})}
+ root.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX},{passive:true});
+ root.addEventListener('touchend',event=>{if(startX===null)return;const d=event.changedTouches[0].clientX-startX;startX=null;if(Math.abs(d)>48)manual(d<0?1:-1)},{passive:true});
+ modal.addEventListener('touchstart',event=>{startX=event.changedTouches[0].clientX},{passive:true});
+ modal.addEventListener('touchend',event=>{if(startX===null)return;const d=event.changedTouches[0].clientX-startX;startX=null;if(Math.abs(d)>48)go(index+(d<0?1:-1),false)},{passive:true});
  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();else start()});
- updateUI();start();
+ paint();start()
 })();
 
 // Незалежний таймер: його запуск не залежить від інших модулів лендингу.
@@ -437,8 +442,17 @@ if(v){
   }catch(e){}
  }
  if(!el && (/\.(mp4|webm|ogg)(\?.*)?$/i.test(v))){const player=document.createElement('video');player.controls=true;player.preload='metadata';player.playsInline=true;player.src=v;el=player}
- if(el)frame.replaceChildren(el);
+ if(el){frame.querySelector('.video-play-overlay')?.remove();frame.replaceChildren(el)}
 }
+(function setupVideoPlay(){
+ const button=document.getElementById('videoPlayOverlay'),video=document.querySelector('#videoFrame video');
+ if(!button||!video)return;
+ button.addEventListener('click',()=>{video.play().catch(()=>{button.hidden=false})});
+ video.addEventListener('playing',()=>{button.hidden=true});
+ video.addEventListener('pause',()=>{button.hidden=false});
+ video.addEventListener('ended',()=>{button.hidden=false});
+ if(!video.paused)button.hidden=true
+})();
 </script>
 </body>
 </html>
